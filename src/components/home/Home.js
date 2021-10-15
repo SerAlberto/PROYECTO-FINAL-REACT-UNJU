@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Container>
+    <Container className="mt-3">
       {state.cartas_mazo?.length === 0 ? (
         <div className="d-flex justify-content-center mt-5">
           <Spinner
