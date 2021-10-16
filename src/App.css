@@ -1,43 +1,71 @@
+:root {
+  --color-primario: rgb(255, 255, 255);
+  --degradado-primario: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(59, 59, 59, 1) 26%,
+    rgba(89, 89, 89, 1) 52%,
+    rgba(59, 59, 59, 1) 77%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+* {
+  font-family: sans-serif;
+}
+
+a:hover {
+  color: rgb(202, 169, 0) !important;
+  transition: 1s ease;
+}
+
 .page-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   text-align: center;
-  background: rgb(121, 196, 57);
+  background-image: url(./images/landing1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* background: rgb(121, 196, 57);
   background: radial-gradient(
     circle,
     rgba(121, 196, 57, 1) 0%,
     rgba(0, 99, 19, 1) 100%
-  );
+  ); */
 }
 
 .content-wrap {
   flex: 1;
+  margin-bottom: 1em;
 }
 
 /* NavBar */
 .main-navbar {
-  background: rgb(83, 182, 0);
+  background: var(--degradado-primario);
+  /* background: rgb(83, 182, 0);
   background: linear-gradient(
     0deg,
     rgba(83, 182, 0, 1) 0%,
     rgba(21, 107, 0, 1) 100%,
     rgba(33, 99, 18, 1) 100%
-  );
+  ); */
 }
+
 /* Footer */
 .main-footer {
+  color: var(--color-primario);
   text-align: center;
-  color: white;
-  background: rgb(29, 108, 0);
+  background: var(--degradado-primario);
+  /* background: rgb(29, 108, 0);
   background: linear-gradient(
     0deg,
     rgba(29, 108, 0, 1) 0%,
     rgba(17, 65, 0, 1) 100%
-  );
-  margin-top: 1em;
-  padding-top: 2em;
-  padding-bottom: 1em;
+  ); */
+  padding: 2em 2em;
   position: relative;
   bottom: 0;
   width: 100%;

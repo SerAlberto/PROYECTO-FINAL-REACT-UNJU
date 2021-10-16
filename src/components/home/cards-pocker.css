@@ -1,0 +1,20 @@
+.card-pocker {
+  width: 250px;
+  color: black;
+  background: rgb(213, 199, 160);
+  background: radial-gradient(
+    circle,
+    rgba(213, 199, 160, 1) 0%,
+    rgba(222, 182, 80, 1) 29%,
+    rgba(213, 164, 43, 1) 51%,
+    rgba(228, 184, 79, 1) 69%,
+    rgba(179, 140, 36, 1) 100%
+  );
+  border: 1px solid rgb(255, 187, 0);
+  border-radius: 10px;
+}
+
+.card-pocker:hover {
+  box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273);
+  transition: all 0.2s linear;
+}
