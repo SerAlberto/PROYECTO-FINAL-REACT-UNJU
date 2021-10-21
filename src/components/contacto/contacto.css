@@ -1,0 +1,49 @@
+.button-cancelar {
+    width: 200px;
+    color: black;
+    background: rgb(255, 111, 111);
+    background: radial-gradient(
+      
+      rgb(255, 72, 72) 0%,
+      rgb(255, 68, 68) 29%,
+      rgb(255, 63, 63) 51%,
+      rgb(255, 44, 44) 69%,
+      rgb(255, 0, 0) 100%
+    );
+    border: 1px solid rgb(2, 2, 2);
+    border-radius: 10px;
+  }
+
+  .button-enviar {
+    width: 200px;
+    color: black;
+    background: rgb(47, 248, 47);
+    background: radial-gradient(
+      
+      rgb(55, 163, 51) 0%,
+      rgb(66, 145, 69) 29%,
+      rgb(52, 141, 63) 51%,
+      rgb(36, 146, 49) 69%,
+      rgb(40, 114, 22) 100%
+    );
+    border: 1px solid rgb(255, 187, 0);
+    border-radius: 10px;
+  }
+
+  .badgeDorada {
+    width: 290px;
+    color: black;
+    background: rgb(213, 199, 160) ;
+    background: radial-gradient(
+      circle,
+      rgba(213, 199, 160, 1) 0%,
+      rgba(222, 182, 80, 1) 29%,
+      rgba(213, 164, 43, 1) 51%,
+      rgba(228, 184, 79, 1) 69%,
+      rgba(179, 140, 36, 1) 100%
+    );
+    border: 1px solid rgb(255, 187, 0);
+    border-radius: 10px;
+  }
+
+  

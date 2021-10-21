@@ -1,0 +1,63 @@
+.button-style {
+    width: 290px;
+    color: black;
+    background: rgb(213, 199, 160);
+    background: radial-gradient(
+      circle,
+      rgba(213, 199, 160, 1) 0%,
+      rgba(222, 182, 80, 1) 29%,
+      rgba(213, 164, 43, 1) 51%,
+      rgba(228, 184, 79, 1) 69%,
+      rgba(179, 140, 36, 1) 100%
+    );
+    border: 1px solid rgb(255, 187, 0);
+    border-radius: 10px;
+
+  }
+
+
+ 
+  .conten{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    
+  }
+
+  .sup{
+    z-index: 2;
+  }
+ 
+  .bg{
+    flex: 1;
+    margin: 0;
+    background-size: cover;
+    min-height: 82vh;
+    background-repeat: no-repeat;
+    background-position:center;
+    background-attachment: fixed;
+    background-image: url(../../images/fondo.jpg);
+    padding-bottom: 10rem;
+  }
+  
+  .bg:before{
+    content:"";
+    width: 100%;
+    min-height: 82vh;
+    position: absolute;
+    top:0;
+    left:0;
+    background: rgb(2,0,36);
+    background: linear-gradient(120deg, rgba(2,0,36,1) 0%, rgba(11,43,7,1) 32%, rgba(14,114,49,1) 100%);
+    opacity: 0.5;
+    z-index:0;
+
+  }
+
+
+
+  

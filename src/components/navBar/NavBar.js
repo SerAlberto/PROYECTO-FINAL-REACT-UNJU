@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Logo from "../../images/logo.png"
+import "./logo.css";
 import {
   Navbar,
   Container,
@@ -25,7 +27,7 @@ export default function NavBar(props) {
     <Navbar className="main-navbar sticky-top" expand="lg">
       <Container fluid className="m-2">
         <Link className="navbar-brand" to="/">
-          <img src="" alt="logo" />
+          <img src={Logo} alt="logo" className="logo-color" />
         </Link>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

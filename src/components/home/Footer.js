@@ -19,12 +19,13 @@ export default function Footer() {
               <BsFacebook size="30px" />
             </a>
           </div>
+
           <div className="col-md-6 col-sm-12">
             <p className="col-sm mb-0">Jorge Nicolás Yáñez</p>
             <a
               className="text-light"
               rel="noreferrer"
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/nico.yanez.9/"
               target="_blank"
             >
               <BsFacebook size="30px" />

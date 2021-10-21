@@ -2,6 +2,7 @@ import React from "react";
 import { Badge, Form, Button, Row, Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import "./contacto.css";
 
 function validacion(input) {
   let errores = [];
@@ -47,7 +48,8 @@ export default function About() {
 
   function onsubmitform(e) {
     history.push("/home");
-    alert("Gracias! pronto nos comunicaremos con usted!");
+    alert("Muchas gracias,pronto nos contactaremos con usted!")
+    
   }
 
   const redirecthome = () => {
@@ -71,7 +73,7 @@ export default function About() {
   return (
     <div class="text-center container" style={{ paddingTop: "1rem" }}>
       <h2 style={{ textAlign: "left" }}>
-        <Badge bg="success">Contacto</Badge>
+        <Badge bg="success badgeDorada">Contacto</Badge>
       </h2>
       <Form style={{ textAlign: "left" }} onSubmit={(e) => onsubmitform(e)}>
         <Form.Group className="mb-3">
@@ -122,21 +124,23 @@ export default function About() {
             style={{ display: "flex", justifyContent: "space-between" }}
           >
             <Button
+              className="button-cancelar"
               onClick={() => {
                 redirecthome();
               }}
               size="lg"
               variant="outline-danger"
-              style={{}}
+              style={{color:"white"}}
             >
               Cancelar
             </Button>
 
             <Button
+            className="button-enviar"
               size="lg"
-              variant="success"
+              variant="secondary"
               type="submit"
-              style={{}}
+              style={{color:"white"}}
               disabled={
                 fails.email || fails.nombre || fails.mensaje ? true : false
               }
