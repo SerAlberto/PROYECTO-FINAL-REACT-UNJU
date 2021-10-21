@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   Container,
@@ -7,9 +7,20 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { NavLink, Link, useHistory, useLocation } from "react-router-dom";
 
-export default function NavBar() {
+export default function NavBar(props) {
+  const [busqueda, setBusqueda] = useState("");
+
+  const history = useHistory();
+  const location = useLocation();
+
+  function onHandleSubmit(e) {
+    e.preventDefault();
+    history.push("/home");
+    props.buscarCartas(busqueda.toLowerCase());
+  }
+
   return (
     <Navbar className="main-navbar sticky-top" expand="lg">
       <Container fluid className="m-2">
@@ -23,22 +34,41 @@ export default function NavBar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Link className="nav-link text-light" exact to="/home">
+            <NavLink
+              className="nav-link text-light"
+              exact
+              to="/home"
+              activeClassName="active-link"
+            >
               Inicio
-            </Link>
-            <Link className="nav-link text-light" exact to="/about">
+            </NavLink>
+            <NavLink
+              className="nav-link text-light"
+              exact
+              to="/about"
+              activeClassName="active-link"
+            >
               Acerca de
-            </Link>
+            </NavLink>
           </Nav>
-          <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-light">Buscar</Button>
-          </Form>
+
+          {location.pathname === "/home" && (
+            <Form className="d-flex" onSubmit={(e) => onHandleSubmit(e)}>
+              <FormControl
+                type="search"
+                placeholder="Buscar"
+                className="me-2"
+                aria-label="Search"
+                value={busqueda}
+                onChange={(e) => {
+                  setBusqueda(e.target.value);
+                }}
+              />
+              <Button variant="outline-light" type="submit">
+                Buscar
+              </Button>
+            </Form>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

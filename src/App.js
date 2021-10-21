@@ -1,18 +1,16 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Contacto from "./components/contacto/Contacto";
 import Home from "./components/home/Home";
 import LandingPage from "./components/landingPage/LandingPage";
 import About from "./components/about/About";
-import NavBar from "./components/navBar/NavBar";
 import Footer from "./components/home/Footer";
 
 export default function App() {
   return (
-    <Router>
+    <>
       <div className="page-container">
         <div className="content-wrap">
-          <NavBar />
           <Switch>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/home" component={Home} />
@@ -25,6 +23,6 @@ export default function App() {
         </div>
         <Footer />
       </div>
-    </Router>
+    </>
   );
 }

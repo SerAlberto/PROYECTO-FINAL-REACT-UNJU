@@ -4,21 +4,35 @@ import { BsFacebook } from "react-icons/bs";
 
 export default function Footer() {
   return (
-    <div className="main-footer ">
+    <div className="main-footer">
       <div className="container">
         <div className="row">
-          <h5>Síguenos en nuestras redes sociales</h5>
+          <h5 className="text-light">Síguenos en nuestras redes sociales</h5>
           <div className="col-md-6 col-sm-12">
             <p className="col-sm mb-0">Sergio Alberto Montesino</p>
-            <BsFacebook />
+            <a
+              className="text-light"
+              rel="noreferrer"
+              href="https://www.facebook.com/sergioalberti.lovecristo"
+              target="_blank"
+            >
+              <BsFacebook size="30px" />
+            </a>
           </div>
           <div className="col-md-6 col-sm-12">
             <p className="col-sm mb-0">Jorge Nicolás Yáñez</p>
-            <BsFacebook />
+            <a
+              className="text-light"
+              rel="noreferrer"
+              href="https://www.facebook.com"
+              target="_blank"
+            >
+              <BsFacebook size="30px" />
+            </a>
           </div>
         </div>
         <Link
-          className=""
+          className="text-light"
           to="/contact"
           style={{ textDecoration: "none", width: "auto" }}
         >
