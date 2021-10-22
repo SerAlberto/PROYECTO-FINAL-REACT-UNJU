@@ -3,18 +3,19 @@ import axios from "axios";
 import { Row, Col, Card, Container } from "react-bootstrap";
 import Select from "react-select";
 import { PuffLoader } from "react-spinners";
+import { Link } from "react-router-dom";
 
 import "./cards-pocker.css";
 import SideBar from "./SideBar";
 import NavBar from "../navBar/NavBar";
 
-export default function Home() {
+export default function Home({ mazo, setMazo }) {
   const resultadoBusqueda = "No se encontró ninguna carta";
   const [loading, setLoading] = useState(false);
   const [state, setState] = useState({
-    cartasMazo: [],
-    cartasMazoFiltro: [],
-    cartasMazoMostrar: [],
+    cartasMazo: mazo,
+    cartasMazoFiltro: mazo,
+    cartasMazoMostrar: mazo,
   });
 
   const [busquedaValorTipo, setBusquedaValorTipo] = useState({
@@ -63,6 +64,7 @@ export default function Home() {
   ];
   const [cantidadCartas, setCantidadCartas] = useState(cantidadCartasSelect[0]);
 
+  //Actualizamos por primera vez y cada vez q cambiemos seleccionemos un valor del select
   useEffect(() => {
     async function fetchData() {
       setState({
@@ -107,8 +109,12 @@ export default function Home() {
         return null;
       }
     });
-
+    console.log(filtro);
     setState({ ...state, cartasMazoFiltro: filtro, cartasMazoMostrar: filtro });
+  }
+
+  async function devolverCartasAlMazo() {
+    setMazo(state.cartasMazo);
   }
 
   return (
@@ -123,6 +129,7 @@ export default function Home() {
           filtroColor={filtroColor}
           setFiltroColor={setFiltroColor}
         />
+
         <Container className="mt-3">
           <p className="text-light">
             Seleccione la cantidad de cartas que desea visualizar
@@ -146,31 +153,38 @@ export default function Home() {
           {state.cartasMazoMostrar?.length === 0 ? (
             <div className="d-flex justify-content-center mt-5">
               {loading ? (
-                <PuffLoader color="orange" size={150} />
+                <PuffLoader color="#fff" size={150} />
               ) : (
                 <h3 className="text-warning">{resultadoBusqueda}</h3>
               )}
             </div>
           ) : (
-            <Row sm={1} md={2} lg={3} xl={4} className="g-4 mt-3">
+            <Row sm={1} md={2} lg={3} xl={4} className="g-4 mt-3 mb-3">
               {state.cartasMazoMostrar?.map((carta, index) => (
                 <Col key={index}>
-                  <Card className="p-2 text-center mx-auto card-pocker">
-                    <Card.Img
-                      variant="top"
-                      className="mx-auto card"
-                      src={carta.image}
-                      style={{
-                        height: "auto",
-                        width: "10rem",
-                        borderRadius: "10px",
-                      }}
-                    />
-                    <Card.Body>
-                      <Card.Title>{carta.suit}</Card.Title>
-                      <Card.Text>Valor: {carta.value}</Card.Text>
-                    </Card.Body>
-                  </Card>
+                  <Link
+                    to={`/cardDetail/${carta.code}`}
+                    onClick={() => {
+                      devolverCartasAlMazo();
+                    }}
+                  >
+                    <Card className="p-2 text-center mx-auto card-pocker">
+                      <Card.Img
+                        variant="top"
+                        className="mx-auto card"
+                        src={carta.image}
+                        style={{
+                          height: "auto",
+                          width: "10rem",
+                          borderRadius: "10px",
+                        }}
+                      />
+                      <Card.Body>
+                        <Card.Title>{carta.suit}</Card.Title>
+                        <Card.Text>Valor: {carta.value}</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Link>
                 </Col>
               ))}
             </Row>

@@ -179,7 +179,7 @@ export default function SideBar({
         <hr />
         <Button
           className="mb-3"
-          variant="outline-warning"
+          variant="outline-info"
           onClick={() => filtracionEspecifica()}
         >
           Aplicar filtros

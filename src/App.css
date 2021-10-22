@@ -11,11 +11,24 @@
 }
 
 * {
-  font-family: sans-serif;
+  font-family: Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+button {
+  border-radius: 10px !important;
+}
+
+button:active {
+  transform: scale(0.95);
+  transition: all 0.1s ease-in-out;
+}
+
+a {
+  text-decoration: none;
 }
 
 a:hover {
-  color: rgb(202, 169, 0) !important;
+  color: rgb(102, 155, 253) !important;
   transition: 1s ease;
 }
 /* ----------------------------------------------------- */
@@ -39,7 +52,7 @@ a:hover {
 
 .content-wrap {
   flex: 1;
-
+  position: relative;
 }
 /* ----------------------------------------------------- */
 /* NavBar */
@@ -53,23 +66,57 @@ a:hover {
     rgba(33, 99, 18, 1) 100%
   ); */
 }
-.active-link {
-  background: rgb(53, 53, 53);
-}
 /* ----------------------------------------------------- */
 /* Footer */
 .main-footer {
   color: var(--color-primario);
   text-align: center;
   background: var(--degradado-primario);
-  /* background: rgb(29, 108, 0);
-  background: linear-gradient(
-    0deg,
-    rgba(29, 108, 0, 1) 0%,
-    rgba(17, 65, 0, 1) 100%
-  ); */
   padding: 2em 2em;
   position: relative;
   bottom: 0;
   width: 100%;
+}
+
+/* ----------------------------------------------------- */
+/* Botones Efectos */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 200px;
+  height: 50px;
+  background-color: rgb(102, 155, 253);
+  text-transform: uppercase;
+  color: var(--color-primario);
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: 0.3 ease all;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.boton span {
+  position: relative;
+  z-index: 2;
+  transition: 0.3 ease all;
+}
+
+.boton-uno::after {
+  content: "";
+  width: 300px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: calc(-100% - 100px);
+  border-bottom: 50px solid #286cff;
+  border-right: 50px solid transparent;
+  transition: 0.4s ease-in-out all;
+}
+.boton.boton-uno:hover::after {
+  left: 0;
 }

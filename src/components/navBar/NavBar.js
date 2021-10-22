@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logo from "../../images/logo.png"
+import Logo from "../../images/logo.png";
 import "./logo.css";
 import {
   Navbar,
@@ -66,7 +66,7 @@ export default function NavBar(props) {
                   setBusqueda(e.target.value);
                 }}
               />
-              <Button variant="outline-light" type="submit">
+              <Button variant="outline-warning" type="submit">
                 Buscar
               </Button>
             </Form>

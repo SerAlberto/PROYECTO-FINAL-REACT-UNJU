@@ -10,12 +10,29 @@
     rgba(228, 184, 79, 1) 69%,
     rgba(179, 140, 36, 1) 100%
   );
-  border: 1px solid rgb(255, 187, 0);
+  border: 4px inset rgb(255, 187, 0);
   border-radius: 10px;
+  transition: all 0.2s linear;
 }
 
 .card-pocker:hover {
   box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273);
-  transition: all 0.2s linear;
+  border: 4px inset rgb(255, 187, 0);
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
+.card-pocker:active {
+  transform: translateY(4px);
+  border: 4px inset rgb(98, 98, 98);
+  color: white;
+  background: radial-gradient(
+    circle,
+    rgba(213, 199, 160, 1) 0%,
+    rgb(75, 74, 73) 29%,
+    rgb(119, 111, 111) 51%,
+    rgb(134, 134, 134) 69%,
+    rgb(119, 112, 112) 100%
+  );
+  transition: all 0.1s linear;
+}

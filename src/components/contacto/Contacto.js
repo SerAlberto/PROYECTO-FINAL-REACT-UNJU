@@ -24,9 +24,9 @@ function validacion(input) {
   if (!input.mensaje) {
     errores.mensaje = "Mensaje is required";
   } else if (String(input.mensaje).length > 256) {
-    errores.mensaje = "the subject requires a maximum of 256 characters";
+    errores.mensaje = "The subject requires a maximum of 256 characters";
   } else if (String(input.mensaje).length < 10) {
-    errores.mensaje = "the subject requires a minimum of 10 characters";
+    errores.mensaje = "The subject requires a minimum of 10 characters";
   }
   return errores;
 }
@@ -48,8 +48,7 @@ export default function About() {
 
   function onsubmitform(e) {
     history.push("/home");
-    alert("Muchas gracias,pronto nos contactaremos con usted!")
-    
+    alert("Muchas gracias,pronto nos contactaremos con usted!");
   }
 
   const redirecthome = () => {
@@ -71,7 +70,7 @@ export default function About() {
   }
 
   return (
-    <div class="text-center container" style={{ paddingTop: "1rem" }}>
+    <div className="text-center container" style={{ paddingTop: "1rem" }}>
       <h2 style={{ textAlign: "left" }}>
         <Badge bg="success badgeDorada">Contacto</Badge>
       </h2>
@@ -130,17 +129,17 @@ export default function About() {
               }}
               size="lg"
               variant="outline-danger"
-              style={{color:"white"}}
+              style={{ color: "white" }}
             >
               Cancelar
             </Button>
 
             <Button
-            className="button-enviar"
+              className="button-enviar"
               size="lg"
-              variant="secondary"
+              variant="outline-success"
               type="submit"
-              style={{color:"white"}}
+              style={{ color: "white" }}
               disabled={
                 fails.email || fails.nombre || fails.mensaje ? true : false
               }
