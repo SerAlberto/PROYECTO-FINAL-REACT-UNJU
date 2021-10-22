@@ -7,8 +7,6 @@ import { FiFilter } from "react-icons/fi";
 export default function SideBar({
   state,
   setState,
-  busquedaValorTipo,
-  setBusquedaValorTipo,
   filtroColor,
   setFiltroColor,
 }) {
@@ -17,6 +15,15 @@ export default function SideBar({
     { value: "descendente", label: "Descendente" },
   ];
   const [orden, setOrden] = useState([]);
+
+  const tiposCartasSelect = [
+    { value: "TODOS", label: "Todos" },
+    { value: "SPADES", label: "Pica" },
+    { value: "CLUBS", label: "Trébol" },
+    { value: "DIAMONDS", label: "Diamante" },
+    { value: "HEARTS", label: "Corazón" },
+  ];
+  const [filtroTipo, setFiltroTipo] = useState(null);
 
   function agregarAtributoOrden(cartas) {
     const valor = [
@@ -53,6 +60,10 @@ export default function SideBar({
     //Llamo a la función para asignarle un valor numerico a cada carta, por ej, "A" = 0 , "1" = 1, etc
     agregarAtributoOrden(cartasFiltro);
     cartasFiltro = aplicarFiltroColor();
+    if (filtroTipo.value !== "TODOS") {
+      cartasFiltro = aplicarFiltroTipo();
+    }
+
     //Aquí orden las cartas de acuerdo a los valores de las cartas
     switch (orden.value) {
       case "ascendente":
@@ -100,19 +111,15 @@ export default function SideBar({
     return mazoColor;
   }
 
-  function filtroValorTipo(e) {
-    //Filtramos la busqueda en tiempo real por valor o por tipo
-    if (
-      (!e.target.checked &&
-        busquedaValorTipo.tipo &&
-        busquedaValorTipo.valor) ||
-      e.target.checked
-    ) {
-      setBusquedaValorTipo({
-        ...busquedaValorTipo,
-        [e.target.name]: e.target.checked,
-      });
-    }
+  function aplicarFiltroTipo() {
+    let mazoColor = state.cartasMazoFiltro.filter((item) => {
+      if (filtroTipo.value === item.suit) {
+        return item;
+      } else {
+        return null;
+      }
+    });
+    return mazoColor;
   }
 
   function filtrarColor(e) {
@@ -177,6 +184,24 @@ export default function SideBar({
             />
           </div>
         </Form>
+        Tipo:
+        <Select
+          className="text-dark mb-3"
+          defaultValue={tiposCartasSelect[0]}
+          options={tiposCartasSelect}
+          placeholder="Selecciona..."
+          isSearchable
+          onChange={setFiltroTipo}
+          theme={(theme) => ({
+            ...theme,
+            borderRadius: 5,
+            colors: {
+              ...theme.colors,
+              primary25: "orange",
+              primary: "black",
+            },
+          })}
+        />
         <hr />
         <Button
           className="mb-3 d-flex"
@@ -187,33 +212,6 @@ export default function SideBar({
           Aplicar filtros
           <FiFilter size="15px" className="m-1" />
         </Button>
-        Buscar por:
-        <Form>
-          <div className="mb-3">
-            <Form.Check
-              inline
-              checked={busquedaValorTipo.valor}
-              label="Valor"
-              name="valor"
-              onClick={(e) => {
-                filtroValorTipo(e);
-              }}
-              type="checkbox"
-              id={`inline-checkbox-1`}
-            />
-            <Form.Check
-              inline
-              checked={busquedaValorTipo.tipo}
-              label="Tipo"
-              name="tipo"
-              onClick={(e) => {
-                filtroValorTipo(e);
-              }}
-              type="checkbox"
-              id={`inline-checkbox-2`}
-            />
-          </div>
-        </Form>
       </div>
     </>
   );

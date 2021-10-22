@@ -21,7 +21,6 @@ export default function NavBar(props) {
   function onHandleSubmit(e) {
     e.preventDefault();
     history.push("/home");
-    props.buscarCartas(busqueda.toLowerCase());
   }
 
   return (

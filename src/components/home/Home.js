@@ -18,10 +18,6 @@ export default function Home({ mazo, setMazo }) {
     cartasMazoMostrar: mazo,
   });
 
-  const [busquedaValorTipo, setBusquedaValorTipo] = useState({
-    valor: true,
-    tipo: true,
-  });
   const [filtroColor, setFiltroColor] = useState({
     rojo: true,
     negro: true,
@@ -96,36 +92,17 @@ export default function Home({ mazo, setMazo }) {
     fetchData();
   }, [cantidadCartas]);
 
-  function buscarCartas(filtrarBusqueda) {
-    var filtro = state.cartasMazo.filter((item) => {
-      if (
-        (busquedaValorTipo.valor &&
-          item.value.toString().toLowerCase().includes(filtrarBusqueda)) ||
-        (busquedaValorTipo.tipo &&
-          item.suit.toLowerCase().includes(filtrarBusqueda))
-      ) {
-        return item;
-      } else {
-        return null;
-      }
-    });
-    console.log(filtro);
-    setState({ ...state, cartasMazoFiltro: filtro, cartasMazoMostrar: filtro });
-  }
-
   async function devolverCartasAlMazo() {
     setMazo(state.cartasMazo);
   }
 
   return (
     <>
-      <NavBar buscarCartas={buscarCartas} />
+      <NavBar />
       <div className=" d-flex">
         <SideBar
           state={state}
           setState={setState}
-          busquedaValorTipo={busquedaValorTipo}
-          setBusquedaValorTipo={setBusquedaValorTipo}
           filtroColor={filtroColor}
           setFiltroColor={setFiltroColor}
         />
