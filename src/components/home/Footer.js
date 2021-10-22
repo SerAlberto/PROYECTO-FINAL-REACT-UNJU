@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="row">
           <h5 className="text-light">Síguenos en nuestras redes sociales</h5>
           <div className="col-md-6 col-sm-12">
-            <p className="col-sm mb-0">Sergio Alberto Montesino</p>
+            <p className="col-sm mb-1">Sergio Alberto Montesino</p>
             <a
               className="text-light"
               rel="noreferrer"
@@ -21,7 +21,7 @@ export default function Footer() {
           </div>
 
           <div className="col-md-6 col-sm-12">
-            <p className="col-sm mb-0">Jorge Nicolás Yáñez</p>
+            <p className="col-sm mb-1">Jorge Nicolás Yáñez</p>
             <a
               className="text-light"
               rel="noreferrer"

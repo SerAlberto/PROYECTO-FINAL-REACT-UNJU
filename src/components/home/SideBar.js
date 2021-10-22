@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./sidebar.css";
 import Select from "react-select";
 import { Button, Form } from "react-bootstrap";
+import { FiFilter } from "react-icons/fi";
 
 export default function SideBar({
   state,
@@ -178,11 +179,13 @@ export default function SideBar({
         </Form>
         <hr />
         <Button
-          className="mb-3"
+          className="mb-3 d-flex"
           variant="outline-info"
+          style={{ width: "100%" }}
           onClick={() => filtracionEspecifica()}
         >
           Aplicar filtros
+          <FiFilter size="15px" className="m-1" />
         </Button>
         Buscar por:
         <Form>

@@ -1,7 +1,7 @@
 .cardDetail {
   position: absolute;
   width: 100vw;
-  height: 100%;
+  height: calc(100% - 134px);
   justify-content: center;
   align-items: center;
   display: flex;

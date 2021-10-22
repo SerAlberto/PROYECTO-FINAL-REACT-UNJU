@@ -10,6 +10,7 @@ import {
   Button,
 } from "react-bootstrap";
 import { NavLink, Link, useHistory, useLocation } from "react-router-dom";
+import { BiSearchAlt } from "react-icons/bi";
 
 export default function NavBar(props) {
   const [busqueda, setBusqueda] = useState("");
@@ -66,8 +67,13 @@ export default function NavBar(props) {
                   setBusqueda(e.target.value);
                 }}
               />
-              <Button variant="outline-warning" type="submit">
+              <Button
+                variant="outline-warning"
+                className="boton-uno d-flex"
+                type="submit"
+              >
                 Buscar
+                <BiSearchAlt size="25px" className="p-1" />
               </Button>
             </Form>
           )}

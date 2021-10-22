@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 import "./cardDetail.css";
+import NavBar from "../navBar/NavBar";
 
 export default function CardDetail({ mazo }) {
   const params = useParams();
@@ -17,37 +18,35 @@ export default function CardDetail({ mazo }) {
   }, [params, history, mazo]);
 
   return (
-    <div className="cardDetail">
-      <Card className="p-3 detail">
-        <Row className="g-0" style={{ minWidth: "500px" }}>
-          <Col md={4}>
-            <Card.Img
-              style={{ maxHeight: "250px", width: "auto" }}
-              src={detalleCarta?.image}
-            />
-          </Col>
-          <Col md={8}>
-            <Card.Body>
-              <Card.Title>{detalleCarta?.suit} </Card.Title>
-              <hr />
+    <>
+      <NavBar />
+      <div className="cardDetail">
+        <Card className="p-3 detail">
+          <Row className="g-0" style={{ minWidth: "500px" }}>
+            <Col md={4}>
+              <Card.Img
+                style={{ width: "auto", height: "200px" }}
+                src={detalleCarta?.image}
+              />
+            </Col>
+            <Col md={8}>
+              <Card.Body style={{ height: "100%" }}>
+                <Card.Title>{detalleCarta?.suit} </Card.Title>
+                <hr />
 
-              <Card.Text>
-                <small className="text-medium-emphasis">
-                  Valor: {detalleCarta?.value}
-                </small>
-              </Card.Text>
-              <button
-                className="boton boton-uno"
-                onClick={() => {
-                  history.push("/home");
-                }}
-              >
-                <span>Regresar</span>
-              </button>
-            </Card.Body>
-          </Col>
-        </Row>
-      </Card>
-    </div>
+                <Card.Text
+                  className="d-flex align-items-center justify-content-center"
+                  style={{ height: "100px" }}
+                >
+                  <small className="text-medium-emphasis">
+                    Valor: {detalleCarta?.value}
+                  </small>
+                </Card.Text>
+              </Card.Body>
+            </Col>
+          </Row>
+        </Card>
+      </div>
+    </>
   );
 }

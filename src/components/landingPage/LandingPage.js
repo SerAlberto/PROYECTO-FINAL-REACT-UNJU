@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Container, Button, Carousel } from "react-bootstrap";
+import { Row, Container, Carousel } from "react-bootstrap";
 import "./landingPage.css";
 import Logo from "../../images/logo.png";
 import { useHistory } from "react-router-dom";
@@ -70,7 +70,7 @@ export default function LandingPage() {
             src={Logo}
             alt="logo"
             className="logo-color"
-            style={{ width: "300px", height: "100px" }}
+            style={{ width: "auto", height: "100px" }}
           />
         </div>
 
@@ -82,27 +82,23 @@ export default function LandingPage() {
           <Container
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <Button
-              className="button-style"
+            <button
               onClick={() => {
                 redirecthome();
               }}
-              size="lg"
-              style={{ color: "black", marginRight: "50px" }}
+              className="m-3 boton boton-uno"
             >
-              Inicio
-            </Button>
+              <span>Inicio</span>
+            </button>
 
-            <Button
+            <button
               onClick={() => {
                 redirectabout();
               }}
-              className="button-style"
-              size="lg"
-              style={{ color: "black" }}
+              className="m-3 boton boton-uno"
             >
-              Acerca de
-            </Button>
+              <span>Acerca de</span>
+            </button>
           </Container>
         </Row>
       </div>
