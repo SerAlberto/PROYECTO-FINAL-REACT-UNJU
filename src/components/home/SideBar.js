@@ -23,7 +23,7 @@ export default function SideBar({
     { value: "DIAMONDS", label: "Diamante" },
     { value: "HEARTS", label: "Corazón" },
   ];
-  const [filtroTipo, setFiltroTipo] = useState(null);
+  const [filtroTipo, setFiltroTipo] = useState(tiposCartasSelect[0]);
 
   function agregarAtributoOrden(cartas) {
     const valor = [
@@ -59,9 +59,10 @@ export default function SideBar({
     let cartasFiltro = state.cartasMazoFiltro;
     //Llamo a la función para asignarle un valor numerico a cada carta, por ej, "A" = 0 , "1" = 1, etc
     agregarAtributoOrden(cartasFiltro);
+
     cartasFiltro = aplicarFiltroColor();
     if (filtroTipo.value !== "TODOS") {
-      cartasFiltro = aplicarFiltroTipo();
+      cartasFiltro = aplicarFiltroTipo(cartasFiltro);
     }
 
     //Aquí orden las cartas de acuerdo a los valores de las cartas
@@ -111,8 +112,8 @@ export default function SideBar({
     return mazoColor;
   }
 
-  function aplicarFiltroTipo() {
-    let mazoColor = state.cartasMazoFiltro.filter((item) => {
+  function aplicarFiltroTipo(filtro) {
+    let mazoColor = filtro.filter((item) => {
       if (filtroTipo.value === item.suit) {
         return item;
       } else {

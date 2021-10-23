@@ -2,6 +2,7 @@ import React from "react";
 import { Badge, Form, Button, Row, Container } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import Swal from "sweetalert2";
 import "./contacto.css";
 
 function validacion(input) {
@@ -47,8 +48,15 @@ export default function About() {
   });
 
   function onsubmitform(e) {
+    Swal.fire({
+      icon: "success",
+      position: "bottom-end",
+      title: "Mensaje enviado",
+      text: "Muchas gracias por contactarnos",
+      showConfirmButton: false,
+      timer: 2000,
+    });
     history.push("/home");
-    alert("Muchas gracias,pronto nos contactaremos con usted!");
   }
 
   const redirecthome = () => {
