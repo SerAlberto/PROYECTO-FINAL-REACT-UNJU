@@ -32,7 +32,7 @@ function validacion(input) {
   return errores;
 }
 
-export default function About() {
+export default function Contacto() {
   const history = useHistory();
 
   const [state, setState] = useState({

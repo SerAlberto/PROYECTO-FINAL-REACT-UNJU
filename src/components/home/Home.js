@@ -96,9 +96,25 @@ export default function Home({ mazo, setMazo }) {
     setMazo(state.cartasMazo);
   }
 
+  //Busqueda por el texto agregado en la barra de búsqueda
+  function buscarCartas(filtrarBusqueda) {
+    var filtro = state.cartasMazo.filter((item) => {
+      if (
+        item.value.toString().toLowerCase().includes(filtrarBusqueda) ||
+        item.suit.toLowerCase().includes(filtrarBusqueda)
+      ) {
+        return item;
+      } else {
+        return null;
+      }
+    });
+    console.log(filtro);
+    setState({ ...state, cartasMazoFiltro: filtro, cartasMazoMostrar: filtro });
+  }
+
   return (
     <>
-      <NavBar />
+      <NavBar buscarCartas={buscarCartas} />
       <div className=" d-flex">
         <SideBar
           state={state}
