@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import "./sidebar.css";
 import Select from "react-select";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { FiFilter } from "react-icons/fi";
+import { BsFillQuestionCircleFill } from "react-icons/bs";
 
 export default function SideBar({
   state,
   setState,
   filtroColor,
   setFiltroColor,
+  setCantidadCartas,
+  cantidadCartasSelect,
 }) {
   const opcionesOrden = [
     { value: "ascendente", label: "Ascendente" },
@@ -140,8 +143,58 @@ export default function SideBar({
     <>
       <div style={{ minWidth: "15rem" }}></div>
       <div className="sidebar">
-        <h5>Filtros</h5>
-        Orden:
+        <h5 className="mt-3">Filtros</h5>
+        <hr />
+        <div class="d-flex justify-content-between mb-1">
+          Cantidad
+          <OverlayTrigger
+            placement="right"
+            overlay={
+              <Tooltip id="button-tooltip-2">
+                Seleccione la cantidad de cartas que desee visualizar
+              </Tooltip>
+            }
+          >
+            <span>
+              <BsFillQuestionCircleFill
+                size={20}
+                className="my-auto text-danger"
+              />
+            </span>
+          </OverlayTrigger>
+        </div>
+        <Select
+          defaultValue={cantidadCartasSelect[0]}
+          className="text-dark mb-3"
+          options={cantidadCartasSelect}
+          isSearchable
+          onChange={setCantidadCartas}
+          theme={(theme) => ({
+            ...theme,
+            borderRadius: 5,
+            colors: {
+              ...theme.colors,
+              primary25: "orange",
+              primary: "black",
+            },
+          })}
+        />
+        <div class="d-flex justify-content-between mb-1">
+          Orden
+          <OverlayTrigger
+            placement="right"
+            overlay={
+              <Tooltip id="button-tooltip-2">Seleccione un orden</Tooltip>
+            }
+          >
+            <span>
+              <BsFillQuestionCircleFill
+                size={20}
+                className="my-auto text-danger"
+              />
+            </span>
+          </OverlayTrigger>
+        </div>
         <Select
           className="text-dark mb-3"
           options={opcionesOrden}
@@ -158,7 +211,24 @@ export default function SideBar({
             },
           })}
         />
-        Color:
+        <div class="d-flex justify-content-between mb-1">
+          Color
+          <OverlayTrigger
+            placement="right"
+            overlay={
+              <Tooltip id="button-tooltip-2">
+                Seleccione un color de carta
+              </Tooltip>
+            }
+          >
+            <span>
+              <BsFillQuestionCircleFill
+                size={20}
+                className="my-auto text-danger"
+              />
+            </span>
+          </OverlayTrigger>
+        </div>
         <Form>
           <div className="mb-3">
             <Form.Check
@@ -185,7 +255,24 @@ export default function SideBar({
             />
           </div>
         </Form>
-        Tipo:
+        <div class="d-flex justify-content-between mb-1">
+          Tipo
+          <OverlayTrigger
+            placement="right"
+            overlay={
+              <Tooltip id="button-tooltip-2">
+                Seleccione un tipo de carta
+              </Tooltip>
+            }
+          >
+            <span>
+              <BsFillQuestionCircleFill
+                size={20}
+                className="my-auto text-danger"
+              />
+            </span>
+          </OverlayTrigger>
+        </div>
         <Select
           className="text-dark mb-3"
           defaultValue={tiposCartasSelect[0]}
@@ -205,9 +292,8 @@ export default function SideBar({
         />
         <hr />
         <Button
-          className="mb-3 d-flex"
+          className="mb-3 d-flex mx-auto"
           variant="outline-info"
-          style={{ width: "100%" }}
           onClick={() => filtracionEspecifica()}
         >
           Aplicar filtros

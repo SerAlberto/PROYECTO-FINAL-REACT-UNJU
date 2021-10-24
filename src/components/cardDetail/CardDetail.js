@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Row } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 import { useHistory, useParams } from "react-router";
 import "./cardDetail.css";
 import NavBar from "../navBar/NavBar";
+import Naipe from "../../images/reversaNaipe2.jpg";
 
 export default function CardDetail({ mazo }) {
   const params = useParams();
@@ -20,8 +21,61 @@ export default function CardDetail({ mazo }) {
   return (
     <>
       <NavBar />
-      <div className="cardDetail">
-        <Card className="p-3 detail">
+      <div className="cardDetail ">
+        <div>
+          <h4>
+            {detalleCarta?.suit === "SPADES" ||
+            detalleCarta?.suit === "CLUBS" ? (
+              <Badge
+                className="animate__animated animate__lightSpeedInLeft"
+                pill
+                bg="primary"
+              >
+                Tipo: {detalleCarta?.suit}
+              </Badge>
+            ) : (
+              <Badge
+                className="animate__animated animate__lightSpeedInLeft"
+                pill
+                bg="danger"
+              >
+                Tipo: {detalleCarta?.suit}
+              </Badge>
+            )}
+
+            <Badge
+              className="mx-3 animate__animated animate__lightSpeedInRight"
+              pill
+              bg="info"
+            >
+              Valor: {detalleCarta?.value}
+            </Badge>
+          </h4>
+          <div className="contenedorCardAnimate animate__animated animate__zoomInDown">
+            <div className="carta">
+              <div className="lado frente">
+                <img
+                  style={{ width: "100%", height: "100%" }}
+                  src={detalleCarta?.image}
+                  alt="frontal"
+                />
+              </div>
+
+              <div className="lado atras">
+                <img
+                  src={Naipe}
+                  style={{ width: "100%", height: "100%" }}
+                  alt="reversa"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+/* <Card className="p-3 detail">
           <Row className="g-0" style={{ minWidth: "500px" }}>
             <Col md={4}>
               <Card.Img
@@ -45,8 +99,4 @@ export default function CardDetail({ mazo }) {
               </Card.Body>
             </Col>
           </Row>
-        </Card>
-      </div>
-    </>
-  );
-}
+        </Card> */

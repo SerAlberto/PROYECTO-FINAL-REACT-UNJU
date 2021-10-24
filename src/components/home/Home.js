@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Row, Col, Card, Container } from "react-bootstrap";
-import Select from "react-select";
 import { PuffLoader } from "react-spinners";
 import { Link } from "react-router-dom";
 
@@ -121,28 +120,13 @@ export default function Home({ mazo, setMazo }) {
           setState={setState}
           filtroColor={filtroColor}
           setFiltroColor={setFiltroColor}
+          setCantidadCartas={setCantidadCartas}
+          cantidadCartasSelect={cantidadCartasSelect}
         />
 
         <Container className="mt-3">
-          <p className="text-light">
-            Seleccione la cantidad de cartas que desea visualizar
-          </p>
-          <Select
-            defaultValue={cantidadCartasSelect[0]}
-            className="text-dark mb-3"
-            options={cantidadCartasSelect}
-            isSearchable
-            onChange={setCantidadCartas}
-            theme={(theme) => ({
-              ...theme,
-              borderRadius: 5,
-              colors: {
-                ...theme.colors,
-                primary25: "orange",
-                primary: "black",
-              },
-            })}
-          />
+          <h3 className="text-light">Cartas</h3>
+          <hr />
           {state.cartasMazoMostrar?.length === 0 ? (
             <div className="d-flex justify-content-center mt-5">
               {loading ? (
@@ -161,7 +145,7 @@ export default function Home({ mazo, setMazo }) {
                       devolverCartasAlMazo();
                     }}
                   >
-                    <Card className="p-2 text-center mx-auto card-pocker">
+                    <Card className="p-2 text-center mx-auto card-pocker animate__animated animate__fadeIn">
                       <Card.Img
                         variant="top"
                         className="mx-auto card"

@@ -1,9 +1,10 @@
 import React from "react";
 import { Row, Container, Carousel } from "react-bootstrap";
-import "./landingPage.css";
-import Logo from "../../images/logo.png";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
+import "./landingPage.css";
+import Logo from "../../images/logo.png";
+import Naipe from "../../images/reversaNaipe2.jpg";
 import axios from "axios";
 
 export default function LandingPage() {
@@ -20,12 +21,14 @@ export default function LandingPage() {
     cartasMazo: [],
     image: [],
   });
+  const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       setState({
         cartasMazo: [],
       });
+      setCargando(true);
       await axios
         .get("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
         .then(({ data }) => {
@@ -40,6 +43,7 @@ export default function LandingPage() {
                   return e.image;
                 }),
               });
+              setCargando(false);
             });
         })
         .catch((error) => {
@@ -52,25 +56,35 @@ export default function LandingPage() {
   return (
     <div className="bg">
       <div className="content">
-        <div>
-          <Carousel>
-            {state.cartasMazo.map((amigo, index) => (
-              <Carousel.Item key={index} interval={2500}>
-                <img
-                  src={`${amigo.image}`}
-                  alt="First slide"
-                  style={{ width: "150px", height: "200px" }}
-                />
-              </Carousel.Item>
-            ))}
-          </Carousel>
+        <div className="mt-5">
+          {cargando ? (
+            <img
+              className="animate__animated animate__headShake"
+              src={Naipe}
+              alt="reversa"
+              style={{ width: "auto", height: "300px" }}
+            />
+          ) : (
+            <Carousel>
+              {state.cartasMazo.map((amigo, index) => (
+                <Carousel.Item key={index} interval={2500}>
+                  <img
+                    className="animate__animated animate__fadeIn"
+                    src={`${amigo.image}`}
+                    alt="First slide"
+                    style={{ width: "auto", height: "300px" }}
+                  />
+                </Carousel.Item>
+              ))}
+            </Carousel>
+          )}
         </div>
         <div className="sup" style={{ paddingTop: "20px" }}>
           <img
             src={Logo}
             alt="logo"
             className="logo-color"
-            style={{ width: "auto", height: "100px" }}
+            style={{ width: "250px", height: "auto" }}
           />
         </div>
 

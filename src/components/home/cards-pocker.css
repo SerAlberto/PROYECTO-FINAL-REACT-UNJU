@@ -17,7 +17,6 @@
 
 .card-pocker:hover {
   box-shadow: 5px 10px 20px 1px rgba(255, 255, 255, 0.273);
-  border: 4px inset rgb(255, 187, 0);
   transform: scale(1.05);
   cursor: pointer;
 }

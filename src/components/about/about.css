@@ -1,15 +1,7 @@
-.card-plata {
+.card-about {
   width: 800px;
-  color: black;
-  background: rgb(156, 156, 156);
-  background: radial-gradient(
-    circle,
-    rgb(233, 233, 233) 0%,
-    rgb(167, 167, 167) 29%,
-    rgb(139, 139, 139) 51%,
-    rgb(136, 136, 136) 69%,
-    rgb(56, 56, 56) 100%
-  );
+  color: rgb(255, 255, 255);
+  background: #282e38;
   border: 1px solid rgb(2, 2, 2);
   border-radius: 10px;
 }
@@ -18,7 +10,7 @@ img {
   border-radius: 10px;
 }
 
-.card-dorada {
+.card-titulo {
   color: black;
   background: rgb(213, 199, 160);
   background: radial-gradient(
@@ -39,4 +31,13 @@ img {
   padding-top: 50px;
   margin-left: 50px;
   margin-right: 50px;
+}
+
+.icono-social {
+  transition: all 0.1s ease-in-out;
+}
+
+.icono-social:hover {
+  transform: scale(1.4);
+  transition: all 0.1s ease-in-out;
 }

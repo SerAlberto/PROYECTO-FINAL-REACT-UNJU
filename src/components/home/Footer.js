@@ -32,12 +32,13 @@ export default function Footer() {
             </a>
           </div>
         </div>
+        &copy;{new Date().getFullYear()} Todos los derechos reservados |
         <Link
           className="text-light"
           to="/contact"
           style={{ textDecoration: "none", width: "auto" }}
         >
-          Contáctanos
+          {" Contáctanos"}
         </Link>
       </div>
     </div>
