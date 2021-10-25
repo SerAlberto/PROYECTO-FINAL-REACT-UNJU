@@ -32,7 +32,7 @@ export default function About() {
               </Col>
               <Col md={8}>
                 <Card.Body>
-                  <Card.Title style={{ paddingTop: "15px" }}>
+                  <Card.Title style={{ paddingTop: "15px", color: "white" }}>
                     Jorge Nicolas Yañez
                   </Card.Title>
                   <Card.Text style={{ paddingTop: "30px" }}>
@@ -86,7 +86,9 @@ export default function About() {
               </Col>
               <Col md={8}>
                 <Card.Body>
-                  <Card.Title>Sergio Alberto Montesino</Card.Title>
+                  <Card.Title style={{ paddingTop: "15px", color: "white" }}>
+                    Sergio Alberto Montesino
+                  </Card.Title>
                   <Card.Text style={{ paddingTop: "30px" }}>
                     Estudiante avanzado de Ingenieria Informatica en facultad de
                     Ingenieria FI-UNJu

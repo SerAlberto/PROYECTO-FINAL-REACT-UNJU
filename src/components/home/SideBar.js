@@ -158,7 +158,7 @@ export default function SideBar({
             <span>
               <BsFillQuestionCircleFill
                 size={20}
-                className="my-auto text-danger"
+                className="my-auto text-warning"
               />
             </span>
           </OverlayTrigger>
@@ -190,7 +190,7 @@ export default function SideBar({
             <span>
               <BsFillQuestionCircleFill
                 size={20}
-                className="my-auto text-danger"
+                className="my-auto text-warning"
               />
             </span>
           </OverlayTrigger>
@@ -224,7 +224,7 @@ export default function SideBar({
             <span>
               <BsFillQuestionCircleFill
                 size={20}
-                className="my-auto text-danger"
+                className="my-auto text-warning"
               />
             </span>
           </OverlayTrigger>
@@ -268,7 +268,7 @@ export default function SideBar({
             <span>
               <BsFillQuestionCircleFill
                 size={20}
-                className="my-auto text-danger"
+                className="my-auto text-warning"
               />
             </span>
           </OverlayTrigger>

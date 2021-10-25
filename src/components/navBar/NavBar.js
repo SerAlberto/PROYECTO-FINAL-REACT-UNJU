@@ -38,7 +38,7 @@ export default function NavBar(props) {
             navbarScroll
           >
             <NavLink
-              className="nav-link text-light"
+              className="nav-link"
               exact
               to="/home"
               activeClassName="active-link"
@@ -46,7 +46,7 @@ export default function NavBar(props) {
               Inicio
             </NavLink>
             <NavLink
-              className="nav-link text-light"
+              className="nav-link"
               exact
               to="/about"
               activeClassName="active-link"

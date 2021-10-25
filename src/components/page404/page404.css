@@ -1,0 +1,76 @@
+.contenedorPage404 {
+  margin-top: 5rem;
+}
+
+.animacionBrilloCuatro {
+  animation: animacionBC 2s infinite alternate;
+}
+@keyframes animacionBC {
+  0% {
+    filter: brightness(50%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}
+
+.animacionBrilloCero {
+  animation: animacionBZ 2s;
+}
+@keyframes animacionBZ {
+  0% {
+    filter: brightness(20%);
+  }
+  15% {
+    filter: brightness(60%);
+  }
+  30% {
+    filter: brightness(20%);
+  }
+  40% {
+    filter: brightness(70%);
+  }
+  50% {
+    filter: brightness(20%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}
+
+.contenedorPage404 img {
+  max-height: 225px;
+  width: auto;
+}
+
+.contenedorCuatro {
+  position: relative;
+}
+
+.carta-animacion {
+  top: 0;
+  left: 5px;
+  position: absolute;
+  animation: cssAnimation 0s ease-in 1.8s forwards;
+}
+
+@keyframes cssAnimation {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.contenedorCero {
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  left: -10px;
+}
+
+.contenedorCero div {
+  position: absolute;
+  overflow: auto;
+  left: -200px;
+}

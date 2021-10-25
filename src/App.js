@@ -7,6 +7,7 @@ import About from "./components/about/About";
 import Footer from "./components/home/Footer";
 import CardDetail from "./components/cardDetail/CardDetail";
 import { useState } from "react";
+import Page404 from "./components/page404/Page404";
 
 export default function App() {
   const [mazo, setMazo] = useState([]);
@@ -25,7 +26,7 @@ export default function App() {
               <CardDetail mazo={mazo} />
             </Route>
             <Route>
-              <h1 className="m-5">Error 404 - No se encontró la página</h1>
+              <Page404 />
             </Route>
           </Switch>
         </div>

@@ -33,11 +33,7 @@ export default function Footer() {
           </div>
         </div>
         &copy;{new Date().getFullYear()} Todos los derechos reservados |
-        <Link
-          className="text-light"
-          to="/contact"
-          style={{ textDecoration: "none", width: "auto" }}
-        >
+        <Link to="/contact" style={{ textDecoration: "none", width: "auto" }}>
           {" Contáctanos"}
         </Link>
       </div>
