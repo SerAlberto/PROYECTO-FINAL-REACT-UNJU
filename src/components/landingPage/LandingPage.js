@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Container, Carousel } from "react-bootstrap";
+import { Row, Container, Carousel,Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./landingPage.css";
@@ -54,11 +54,12 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <div className="bg">
-      <div className="content">
-        <div className="mt-5">
+    <div className="bg" >
+      <div className="content" style={{marginTop:"70px"}}>
+        <div className="mt-5" >
           {cargando ? (
             <img
+            
               className="animate__animated animate__headShake"
               src={Naipe}
               alt="reversa"
@@ -92,27 +93,31 @@ export default function LandingPage() {
           Deck of Card
         </h2>
 
-        <Row className="sup" style={{ paddingTop: "20px" }}>
+        <Row className="sup" >
           <Container
             style={{ display: "flex", justifyContent: "space-between" }}
           >
-            <button
+            <Button
               onClick={() => {
                 redirecthome();
               }}
-              className="m-3 boton boton-uno"
+              className="m-4 dark"
+              variant="dark"
+              style={{height:"70px", width:"180px"}}
             >
               <span>Inicio</span>
-            </button>
+            </Button>
 
-            <button
+            <Button
               onClick={() => {
                 redirectabout();
               }}
-              className="m-3 boton boton-uno"
+              className="m-4  dark"
+              variant="dark"
+              style={{height:"70px", width:"180px"}}
             >
               <span>Acerca de</span>
-            </button>
+            </Button>
           </Container>
         </Row>
       </div>

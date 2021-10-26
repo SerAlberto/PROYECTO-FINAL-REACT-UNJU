@@ -128,7 +128,7 @@ export default function Contacto() {
         </Form.Group>
         <Row>
           <Container
-            style={{ display: "flex", justifyContent: "space-between" }}
+            style={{ display: "flex", justifyContent: "space-between", marginBottom:"50px" }}
           >
             <Button
               className="button-cancelar"
