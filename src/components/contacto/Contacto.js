@@ -9,25 +9,25 @@ function validacion(input) {
   let errores = [];
 
   if (!input.nombre) {
-    errores.nombre = "Nombre is required";
+    errores.nombre = "Nombre es requerido";
   }
 
   if (!input.email) {
-    errores.email = "Email is required";
+    errores.email = "Email es requerido";
   } else if (
     !/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i.test(
       input.email
     )
   ) {
-    errores.email = "Email must be an email";
+    errores.email = "Ingrese un mail válido";
   }
 
   if (!input.mensaje) {
-    errores.mensaje = "Mensaje is required";
+    errores.mensaje = "Mensaje es requerido";
   } else if (String(input.mensaje).length > 256) {
-    errores.mensaje = "The subject requires a maximum of 256 characters";
+    errores.mensaje = "El mensaje requiere un máximo de 256 caracteres";
   } else if (String(input.mensaje).length < 10) {
-    errores.mensaje = "The subject requires a minimum of 10 characters";
+    errores.mensaje = "El mensaje requiere un mínimo de 10 caracteres";
   }
   return errores;
 }
@@ -42,19 +42,36 @@ export default function Contacto() {
   });
 
   const [fails, setFails] = useState({
-    nombre: "Nombre is required",
-    email: "Email is required",
-    mensaje: "Mensaje is required",
+    nombre: " ",
+    email: " ",
+    mensaje: " ",
   });
 
   function onsubmitform(e) {
-    Swal.fire({
-      icon: "success",
+    const Toast = Swal.mixin({
+      toast: true,
       position: "bottom-end",
-      title: "Mensaje enviado",
-      text: "Muchas gracias por contactarnos",
       showConfirmButton: false,
-      timer: 2000,
+      timer: 3000,
+      width: 500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+      showClass: {
+        popup: "animate__animated animate__fadeInRight",
+      },
+      hideClass: {
+        popup: "animate__animated animate__fadeOutRight",
+      },
+    });
+
+    Toast.fire({
+      icon: "success",
+      iconColor: "lightblue",
+      title: "Mensaje enviado",
+      text: "Muchas gracias, pronto nos contactaremos con usted",
     });
     history.push("/home");
   }
@@ -88,7 +105,7 @@ export default function Contacto() {
           <Form.Control
             type="text"
             name="nombre"
-            placeholder="Nombre"
+            placeholder="Ej: Ezequiel"
             value={state.nombre}
             onChange={(e) => onHandleChange(e)}
           />
@@ -98,11 +115,11 @@ export default function Contacto() {
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label style={{ color: "white" }}>Email address</Form.Label>
+          <Form.Label style={{ color: "white" }}>Dirección de Email</Form.Label>
           <Form.Control
             type="email"
             name="email"
-            placeholder="name@example.com"
+            placeholder="Ej: nombre@ejemplo.com"
             value={state.email}
             onChange={(e) => onHandleChange(e)}
           />
@@ -128,7 +145,11 @@ export default function Contacto() {
         </Form.Group>
         <Row>
           <Container
-            style={{ display: "flex", justifyContent: "space-between", marginBottom:"50px" }}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginBottom: "50px",
+            }}
           >
             <Button
               className="button-cancelar"
